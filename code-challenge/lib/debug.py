@@ -83,11 +83,34 @@ print(viewer_2.has_reviewed_movie(movie_1) == True) #=> Should return True given
 print(viewer_2.has_reviewed_movie(movie_2) == False) #=> Should return True given the seeding above
 
 
+from classes.movie import Movie
+from classes.review import Review
+from classes.viewer import Viewer
 
+movie_1 = Movie(title="101 Dalmatians")
+movie_2 = Movie(title="Matrix")
+movie_3 = Movie(title="Mean Girls")
 
+# Viewers
+viewer_1 = Viewer(username="Smirky")
+viewer_2 = Viewer(username="Sminty")
+viewer_3 = Viewer(username="Podgey")
+viewer_4 = Viewer(username="Trudys")
+
+# Reviews
+review_1 = Review(movie=movie_1, viewer=viewer_1, rating=5)
+review_2 = Review(movie=movie_1, viewer=viewer_2, rating=4)
+review_3 = Review(movie=movie_1, viewer=viewer_2, rating=3)
+review_4 = Review(movie=movie_2, viewer=viewer_3, rating=3) 
+review_5 = Review(movie=movie_3, viewer=viewer_4, rating=2)
 
 if __name__ == '__main__':
 #  WRITE YOUR TEST CODE HERE ###
 # DO NOT REMOVE THIS
     print("uncomment ipdb lines if you want to use them")
+    
+    # def reviewed_movies(self):
+    #     print(list({movie.title for movie in self.reviews()}))
+    
+    viewer_1.reviewed_movies()
     # ipdb.set_trace()
