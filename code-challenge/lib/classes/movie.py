@@ -46,6 +46,8 @@ class Movie:
                     max_score = avg_score
                     max_movie = movie
             return max_movie
+        else:
+            raise Exception
                     
             
     
