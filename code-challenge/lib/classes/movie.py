@@ -27,15 +27,28 @@ class Movie:
     
     def average_rating(self):
         # aggregate and association
-        #Returns the average of all ratings for the Movie instance
+        # Returns the average of all ratings for the Movie instance
         # To average ratings, add all ratings together and
         # divide by the total number of ratings
-        pass
+        if isinstance(self, Movie):
+            scores = [review.rating for review in Review.all if review.movie is self]
+            return mean(scores) if len(scores) else 0
     
     @classmethod
     def highest_rated(cls):
         # Returns the Movie instance with the highest average rating.
-        pass
+        if isinstance(cls, Movie):
+            max_score = 0
+            max_movie = None
+            for movie in cls.all:
+                avg_score = movie.average_rating()
+                if avg_score > max_score:
+                    max_score = avg_score
+                    max_movie = movie
+            return max_movie
+                    
+            
     
 from classes.review import Review
 from classes.viewer import Viewer
+from statistics import mean
