@@ -41,7 +41,7 @@ class Movie:
             max_score = 0
             max_movie = None
             for movie in cls.all:
-                avg_score = movie.average_rating()
+                avg_score = movie.average_rating(movie)
                 if avg_score > max_score:
                     max_score = avg_score
                     max_movie = movie
